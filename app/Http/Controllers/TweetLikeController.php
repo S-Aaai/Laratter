@@ -33,19 +33,6 @@ class TweetLikeController extends Controller
         $tweets = Tweet::whereIn('id', $likedTweetIds)->get();
 
         return view('tweets.index', compact('tweets'));
-
-        
-        // $this->authorize('viewAny', Tweet::class);
-
-        // $tweetLikes = TweetUser::with('user')->where('id', '=', 13)->latest()->get();
-        // return view('tweetLikes.index', compact('tweetLikes'));
-
-
-        // $this->authorize('viewAny', TweetUser::class);
-        // $tweetLiked = TweetUser::with('user')->where('id', '=', 13)->latest()->get();
-
-        // // $tweetLiked = $this->tweetService->likedTweets();
-        // return view('tweets_liked.index', compact('tweetLiked'));
     }
 
     /**

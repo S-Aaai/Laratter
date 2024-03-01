@@ -5,13 +5,13 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('tweets.index') }}">
                         <img src="{{ asset('img/icon.png') }}" style="max-height:60px;">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                {{-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
@@ -30,7 +30,7 @@
                     <x-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
                         {{ __('アカウント設定') }}
                     </x-nav-link>
-                </div>
+                </div> --}}
             </div>
 
             <!-- Settings Dropdown -->
@@ -68,7 +68,7 @@
             </div>
 
             <!-- Hamburger -->
-            <div class="-me-2 flex items-center sm:hidden">
+            <div class="-me-2 flex items-center md:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -86,10 +86,19 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link> --}}
             <x-responsive-nav-link :href="route('tweets.index')" :active="request()->routeIs('tweets.index')">
-                {{ __('ホーム') }}
+                {{ __('投稿一覧') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('myposts.index')" :active="request()->routeIs('myposts.index')">
+                {{ __('あなたの投稿') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('tweetLikes.index')" :active="request()->routeIs('tweetLikes.index')">
+                {{ __('いいねした投稿') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('tweets.create')" :active="request()->routeIs('tweets.create')">
                 {{ __('投稿作成') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
+                {{ __('アカウント設定') }}
             </x-responsive-nav-link>
         </div>
 
@@ -101,9 +110,9 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                {{-- <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
-                </x-responsive-nav-link>
+                </x-responsive-nav-link> --}}
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">

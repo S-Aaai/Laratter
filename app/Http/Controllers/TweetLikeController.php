@@ -4,15 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tweet;
+use App\Models\TweetUser;
+use Illuminate\Support\Facades\DB;
+use App\Services\TweetService;
 
 class TweetLikeController extends Controller
 {
+    protected $tweetService;
+
+    public function __construct(TweetService $tweetService)
+    {
+        $this->tweetService = $tweetService;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $this->authorize('viewAny', Tweet::class);
+
+        // ログインユーザーがいいねしたツイートのtweet_idを取得
+        $likedTweetIds = DB::table('tweet_user')
+            ->where('user_id', auth()->user()->id)
+            ->pluck('tweet_id');
+
+        // いいねしたツイートのみを取得
+        $tweets = Tweet::whereIn('id', $likedTweetIds)->get();
+
+        return view('tweets.index', compact('tweets'));
     }
 
     /**
@@ -35,9 +55,10 @@ class TweetLikeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Tweet $tweet)
     {
-        //
+        $this->authorize('view', $tweet);
+        return view('tweets.show', compact('tweet'));
     }
 
     /**
@@ -62,6 +83,6 @@ class TweetLikeController extends Controller
     public function destroy(Tweet $tweet)
     {
         $tweet->liked()->detach(auth()->id());
-        return back();    
+        return back();
     }
 }

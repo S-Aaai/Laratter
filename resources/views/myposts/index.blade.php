@@ -5,7 +5,7 @@
         </h2> --}}
     </x-slot>
 
-    <div class="grid sm:grid-cols-3">
+    <div class="grid grid-cols-3">
         <div class="col-span-1 text-left">
             <div class="flex flex-col items-end">
                 <div class="hidden sm:block">
@@ -75,13 +75,21 @@
                         </div>
                     </div>
                     @endforeach
+
+
+                    @if ($tweets->isEmpty())
+                    <p>初めて投稿してみましょう！</p>
+                    @else
+                        <x-nav-link :href="route('myposts.index')" :active="request()->routeIs('myposts.index')"  />
+                    @endif
+
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-span-1 ">
-            <div class="hidden sm:block mt-16 font-semibold">
+        <div class="col-span-1">
+            <div class="mt-16 font-semibold">
                 今日のホットワード
             </div>
         </div>

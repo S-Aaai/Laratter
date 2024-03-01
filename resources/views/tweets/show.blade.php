@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        {{-- <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
         {{ __('Tweet詳細') }}
-        </h2>
+        </h2> --}}
     </x-slot>
 
     <div class="py-12">
@@ -31,12 +31,12 @@
                         <form action="{{ route('tweets.dislike', $tweet) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                            <button type="submit" class="text-red-500 hover:text-red-700"><img src="{{ asset('img/heart_colored.png') }}" class="h-6"/>{{$tweet->liked->count()}}</img></button>
+                            <button type="submit" class="text-red-500 hover:text-red-700"><img src="{{ asset('img/like_colored.png') }}" class="h-6"/>{{$tweet->liked->count()}}</img></button>
                         </form>
                         @else
                         <form action="{{ route('tweets.like', $tweet) }}" method="POST">
                         @csrf
-                            <button type="submit" class="text-blue-500 hover:text-blue-700"><img src="{{ asset('img/heart_.png') }}" class="h-6"/>{{$tweet->liked->count()}}</img></button>
+                            <button type="submit" class="text-blue-500 hover:text-blue-700"><img src="{{ asset('img/like_.png') }}" class="h-6"/>{{$tweet->liked->count()}}</img></button>
                         </form>
                         @endif
                     </div>

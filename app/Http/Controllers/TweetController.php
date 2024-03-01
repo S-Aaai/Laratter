@@ -7,11 +7,11 @@ use App\Http\Requests\UpdateTweetRequest;
 use App\Models\Tweet;
 use Illuminate\Http\Request;
 use App\Services\TweetService;
+use Illuminate\Support\Facades\Auth;
 
 class TweetController extends Controller
 {
     protected $tweetService;
-
     public function __construct(TweetService $tweetService)
     {
         $this->tweetService = $tweetService;
@@ -25,7 +25,7 @@ class TweetController extends Controller
         $this->authorize('viewAny', Tweet::class);
 
         $tweets = $this->tweetService->allTweets();
-        return view('tweets.index', compact('tweets'));    
+        return view('tweets.index', compact('tweets'));
     }
 
     /**

@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'child_birthday', // ここに追加カラムを記述
     ];
 
     /**

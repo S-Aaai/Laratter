@@ -57,8 +57,9 @@ class TweetController extends Controller
     public function show(Tweet $tweet)
     {
         $this->authorize('view', $tweet);
+        $user = Auth::user();
 
-        return view('tweets.show', compact('tweet'));
+        return view('tweets.show', compact('tweet','user'));
     }
 
     /**

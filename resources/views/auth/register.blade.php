@@ -9,6 +9,13 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
+        {{-- 子供の月齢 --}}
+        <div class="mt-4">
+            <x-input-label for="child_birthday" :value="__('お子様の月齢')" />
+            <x-text-input id="child_birthday" class="block mt-1 w-full" type="date" name="child_birthday" :value="old('child_birthday')" required autofocus autocomplete="child_birthday" />
+            <x-input-error :messages="$errors->get('child_birthday')" class="mt-2" />
+        </div>
+
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />

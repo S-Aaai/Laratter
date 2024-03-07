@@ -7,6 +7,8 @@ use App\Models\Tweet;
 use App\Models\TweetUser;
 use Illuminate\Support\Facades\DB;
 use App\Services\TweetService;
+use Illuminate\Support\Facades\Auth;
+
 
 class TweetLikeController extends Controller
 {
@@ -32,7 +34,9 @@ class TweetLikeController extends Controller
         // いいねしたツイートのみを取得
         $tweets = Tweet::whereIn('id', $likedTweetIds)->get();
 
-        return view('tweets.index', compact('tweets'));
+        $user = Auth::user();
+
+        return view('tweets.index', compact('tweets', 'user'));
     }
 
     /**

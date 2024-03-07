@@ -25,7 +25,9 @@ class TweetController extends Controller
         $this->authorize('viewAny', Tweet::class);
 
         $tweets = $this->tweetService->allTweets();
-        return view('tweets.index', compact('tweets'));
+        $user = Auth::user();
+
+        return view('tweets.index', compact('tweets', 'user'));
     }
 
     /**

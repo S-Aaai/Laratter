@@ -32,7 +32,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('tweets', TweetController::class);
     Route::resource('tweetLikes', TweetLikeController::class);
-
     Route::resource('myposts', MyPostController::class);
 
 

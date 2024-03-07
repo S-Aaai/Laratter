@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'child_birthday', // ここに追加カラムを記述
+        'child_birthday',
     ];
 
     /**
@@ -53,4 +53,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Tweet::class)->withTimestamps();
     }
+
+    public function getChildBirthdayAttribute()
+{
+    return $this->attributes['child_birthday'];
+}
+
 }

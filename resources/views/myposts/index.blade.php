@@ -16,7 +16,7 @@
                     @foreach ($tweets as $tweet)
                     <div class="mb-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
                         <p class="text-gray-600 dark:text-gray-400 text-sm">{{ $tweet->user->name }}</p>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">👶生後: {{ calculateAge($user->child_birthday, $tweet->created_at) }} ヶ月</p><hr></br>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">👶生後: {{ calculateAge($user->child_birthday, $tweet->created_at) }}</p><hr></br>
                         <p class="text-gray-800 dark:text-gray-300">{{ $tweet->tweet }}</p></br>
 
                         <div class="flex justify-between">

@@ -6,6 +6,7 @@ use App\Http\Controllers\TweetController;
 
 use App\Http\Controllers\TweetLikeController;
 use App\Http\Controllers\MyPostController;
+use App\Http\Controllers\SortByAgeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,10 +35,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('tweetLikes', TweetLikeController::class);
     Route::resource('myposts', MyPostController::class);
 
-
     Route::post('/tweets/{tweet}/like', [TweetLikeController::class, 'store'])->name('tweets.like');
     Route::delete('/tweets/{tweet}/like', [TweetLikeController::class, 'destroy'])->name('tweets.dislike');
 
+    Route::get('/sortByAge', [SortByAgeController::class, 'filterTweetsByAge'])->name('sortByAge.index');
 });
 
 require __DIR__.'/auth.php';

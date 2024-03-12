@@ -48,5 +48,5 @@ class StoreTweetRequest extends FormRequest
             throw new HttpResponseException($response);
         }
         parent::failedValidation($validator);
-    }  
+    }
 }

@@ -1,15 +1,15 @@
 <?php
-use DateTime;
+use Carbon\Carbon;
+// usersテーブルのchild_birthdayカラムの情報を、tweetsテーブルのuser_idに繋げる
 
-if (!function_exists("calculateAge")) {
-    function calculateAge($childBirthday, $tweetCreatedAt)
+    function calculateAge($childBirthday, $tweetedAt)
     {
-        $childBirthday = new DateTime($childBirthday);
-        $tweetCreatedAt = new DateTime($tweetCreatedAt);
-        $interval = $childBirthday->diff($tweetCreatedAt);
+        $childBirthday = new Carbon($childBirthday);
+        $tweetedAt = new Carbon('now');
 
-        // echo  $interval->y . "年: " . $interval->m . "ヶ月: ";
+        $diff = $childBirthday->diffInMonths($tweetedAt);     //差分の月数がわかる
+        $year = floor($diff /12);                             //12切捨てで年齢がわかる
+        $month = $diff %12;                                   //12で割った余りで月齢がわかる
 
-        return $interval->y * 12 + $interval->m;
+        return "$year 歳 $month ヶ月";
     }
-}

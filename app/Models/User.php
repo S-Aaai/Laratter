@@ -55,8 +55,8 @@ class User extends Authenticatable
     }
 
     public function getChildBirthdayAttribute()
-{
+    {
     return $this->attributes['child_birthday'];
-}
+    }
 
 }

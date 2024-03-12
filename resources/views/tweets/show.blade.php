@@ -18,13 +18,13 @@
                         </div></br>
 
                         <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $tweet->user->name }}</p>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">👶生後: {{ calculateAge($user->child_birthday, $tweet->created_at) }} ヶ月</p><hr></br>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">👶生後: {{ calculateAge( $tweet->user->child_birthday, $tweet->created_at) }} ヶ月</p><hr></br>
                         <p class="text-gray-800 dark:text-gray-300 text-lg">{{ $tweet->tweet }}</p></br>
 
-                        {{-- <div class="text-gray-600 dark:text-gray-400 text-sm">
+                        <div class="text-gray-600 dark:text-gray-400 text-sm">
                             <p>作成日時: {{ $tweet->created_at->format('Y-m-d H:i') }}</p>
                             <p>更新日時: {{ $tweet->updated_at->format('Y-m-d H:i') }}</p>
-                        </div> --}}
+                        </div>
 
                         <div class="flex justify-between">
                             @if (auth()->id() == $tweet->user_id)

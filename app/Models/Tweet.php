@@ -9,7 +9,9 @@ class Tweet extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['tweet'];
+    protected $fillable = [
+        'tweet',
+    ];
 
     public function user()
     {

@@ -18,7 +18,7 @@
                         </div></br>
 
                         <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $tweet->user->name }}</p>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">👶生後: {{ calculateAge( $tweet->user->child_birthday, $tweet->created_at) }} ヶ月</p><hr></br>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">👶生後: {{ calculateAge( $tweet->user->child_birthday, $tweet->created_at) }}カ月</p><hr></br>
                         <p class="text-gray-800 dark:text-gray-300 text-lg">{{ $tweet->tweet }}</p></br>
 
                         <div class="text-gray-600 dark:text-gray-400 text-sm">

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Services\TweetService;
 use Illuminate\Support\Facades\Auth;
 use CustomHelpers;
+use Illuminate\Support\Facades\Log; // Logファサードをインポート
 
 class TweetController extends Controller
 {
@@ -50,16 +51,20 @@ class TweetController extends Controller
 
             // ユーザーの月齢を計算
             $childBirthday = $request->user()->child_birthday;      // ユーザーの誕生日を取得
-            $tweetedAt = now();                                     // 現在の日時を取得
-            $childAge = calculateAge($childBirthday, $tweetedAt);   // 月齢を計算
+            $tweetedAt = $request->user()->created_at;              // ツイートの投稿日時を取得
+            $childAgeInMonths = calculateAge($childBirthday, $tweetedAt);   // 月齢を計算
+
+            // dd($request->input('tweet'));
+            // dd($childAgeInMonths);
+            // dd($request->user());
 
             // ツイートを作成
-            $tweet = $this->tweetService->createTweet([
-                'tweet' => $request->input('tweet'),
-                'child_age_in_months' => $childAge,                 // 計算された月齢を設定
-            ], $request->user());
+            $tweet = $this->tweetService->createTweet($request->only('tweet'), $request->user());
 
-        // $tweet = $this->tweetService->createTweet($request->only('tweet'), $request->user());
+            $tweet->child_age_in_months = $childAgeInMonths;  // 計算された月齢を設定
+
+            $tweet->save();
+
         return redirect()->route('tweets.index');
     }
 

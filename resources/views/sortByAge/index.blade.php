@@ -1,3 +1,4 @@
+<x-app-layout>
 
         <x-slot name="header">
             {{-- <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -6,23 +7,23 @@
         </x-slot>
 
         <form action="{{ route('sortByAge.index') }}" method="GET">
-            @csrf
-                <select name="selected_age">
-                    <option value="1"> 1 ヶ月</option>
-                    <option value="2"> 2 ヶ月</option>
-                    <option value="3"> 3 ヶ月</option>
-                    <option value="4"> 4 ヶ月</option>
-                    <option value="5"> 5 ヶ月</option>
-                    <option value="6"> 6 ヶ月</option>
-                    <option value="7"> 7 ヶ月</option>
-                    <option value="8"> 8 ヶ月</option>
-                    <option value="9"> 9 ヶ月</option>
-                    <option value="10">10 ヶ月</option>
-                    <option value="11">11 ヶ月</option>
-                    <option value="12">12 ヶ月</option>
-                </select>
-                <button type="submit">👶の投稿を表示</button>
-            </form>
+        @csrf
+            <select name="selected_age">
+                <option value="1"> 1 ヶ月</option>
+                <option value="2"> 2 ヶ月</option>
+                <option value="3"> 3 ヶ月</option>
+                <option value="4"> 4 ヶ月</option>
+                <option value="5"> 5 ヶ月</option>
+                <option value="6"> 6 ヶ月</option>
+                <option value="7"> 7 ヶ月</option>
+                <option value="8"> 8 ヶ月</option>
+                <option value="9"> 9 ヶ月</option>
+                <option value="10">10 ヶ月</option>
+                <option value="11">11 ヶ月</option>
+                <option value="12">12 ヶ月</option>
+            </select>
+            <button type="submit">👶の投稿を表示</button>
+        </form>
 
         <div class="grid sm:grid-cols-1 md:grid-cols-3">
 
@@ -69,3 +70,4 @@
                 </div>
             </div>
         </div>
+</x-app-layout>

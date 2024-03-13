@@ -51,12 +51,14 @@ class TweetController extends Controller
 
             // ユーザーの月齢を計算
             $childBirthday = $request->user()->child_birthday;      // ユーザーの誕生日を取得
-            $tweetedAt = $request->user()->created_at;              // ツイートの投稿日時を取得
+            $tweetedAt = now();              // ツイートの投稿日時を取得
             $childAgeInMonths = calculateAge($childBirthday, $tweetedAt);   // 月齢を計算
 
             // dd($request->input('tweet'));
             // dd($childAgeInMonths);
             // dd($request->user());
+            // dd($childBirthday);
+            // dd($tweetedAt);
 
             // ツイートを作成
             $tweet = $this->tweetService->createTweet($request->only('tweet'), $request->user());

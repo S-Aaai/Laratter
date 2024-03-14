@@ -5,25 +5,6 @@
         </h2> --}}
     </x-slot>
 
-    <form action="{{ route('sortByAge.index') }}" method="GET">
-    @csrf
-        <select name="selected_age">
-            <option value="1"> 1 ヶ月</option>
-            <option value="2"> 2 ヶ月</option>
-            <option value="3"> 3 ヶ月</option>
-            <option value="4"> 4 ヶ月</option>
-            <option value="5"> 5 ヶ月</option>
-            <option value="6"> 6 ヶ月</option>
-            <option value="7"> 7 ヶ月</option>
-            <option value="8"> 8 ヶ月</option>
-            <option value="9"> 9 ヶ月</option>
-            <option value="10">10 ヶ月</option>
-            <option value="11">11 ヶ月</option>
-            <option value="12">12 ヶ月</option>
-        </select>
-        <button type="submit">👶の投稿を表示</button>
-    </form>
-
     <div class="grid sm:grid-cols-1 md:grid-cols-3">
 
         @include('layouts.nav')
@@ -35,7 +16,7 @@
                     @foreach ($tweets as $tweet)
                     <div class="mb-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
                         <p class="text-gray-600 dark:text-gray-400 text-sm">{{ $tweet->user->name }}</p>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">👶生後: {{ calculateAge( $tweet->user->child_birthday, $tweet->created_at) }}ヶ月</p><hr></br>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">👶{{ calculateAge( $tweet->user->child_birthday, $tweet->created_at) }}ヶ月</p><hr></br>
                         <p class="text-gray-800 dark:text-gray-300">{{ $tweet->tweet }}</p></br>
 
                         <div class="flex justify-between">
@@ -64,6 +45,30 @@
         </div>
 
         <div class="col-span-1 ">
+            <form action="{{ route('sortByAge.index') }}" method="GET">
+            @csrf
+                <div class="flex justify-start my-20 ">
+                    <div class="flex items-center">
+                        <span class="mr-3 font-bold">月齢</span>
+                    </div>
+                    <select name="selected_age" class="rounded-full border-none mr-2" >
+                        <option value="1"> 1 ヶ月</option>
+                        <option value="2"> 2 ヶ月</option>
+                        <option value="3"> 3 ヶ月</option>
+                        <option value="4"> 4 ヶ月</option>
+                        <option value="5"> 5 ヶ月</option>
+                        <option value="6"> 6 ヶ月</option>
+                        <option value="7"> 7 ヶ月</option>
+                        <option value="8"> 8 ヶ月</option>
+                        <option value="9"> 9 ヶ月</option>
+                        <option value="10">10 ヶ月</option>
+                        <option value="11">11 ヶ月</option>
+                        <option value="12">12 ヶ月</option>
+                    </select>
+                    <button type="submit">👶の投稿表示</button>
+                </div>
+            </form>
+
             <div class="hidden sm:block mt-16 font-semibold">
                 今日のホットワード
             </div>

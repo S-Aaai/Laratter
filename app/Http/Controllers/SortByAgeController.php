@@ -17,6 +17,7 @@ class SortByAgeController extends Controller
 
         // 選択した月齢に合致する投稿を取得
         $tweets = Tweet::where('child_age_in_months', $selectedAge)
+            ->latest('created_at')
             ->get();
 
         $user = Auth::user();

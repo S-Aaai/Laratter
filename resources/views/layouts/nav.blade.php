@@ -1,8 +1,9 @@
 <div class="col-span-1 text-left">
     <div class="flex flex-col items-end">
         <div class="hidden md:block">
-            <button class="flex font-semibold mr-8 mt-16 mb-4 hover:bg-gray-200 rounded-full px-3 py-2"><img src="/img/home.png" class="h-6 px-2" />
-                <x-nav-link :href="route('tweets.index')" :active="request()->routeIs('tweets.index')">
+            <button class="flex font-semibold mr-8 mt-16 mb-4 hover:bg-gray-200 rounded-full px-3 py-2">
+                <x-nav-link :href="route('tweets.index')" :active="request()->routeIs('tweets.index')" class="flex">
+                    <img src="/img/home.png" class="h-6 px-2" />
                     {{ __('ホーム') }}
                 </x-nav-link>
             </button>
@@ -15,8 +16,9 @@
             </button>
         </div>
         <div class="hidden md:block">
-            <button class="flex font-semibold mr-8 mb-4 hover:bg-gray-200 rounded-full px-3 py-2"><img src="/img/like_.png" class="h-6 px-2" />
-                <x-nav-link :href="route('tweetLikes.index')" :active="request()->routeIs('tweetLikes.index')"  >
+            <button class="flex font-semibold mr-8 mb-4 hover:bg-gray-200 rounded-full px-3 py-2">
+                <x-nav-link :href="route('tweetLikes.index')" :active="request()->routeIs('tweetLikes.index')" class="flex" >
+                    <img src="/img/like_.png" class="h-6 px-2" />
                     {{ __('いいねした投稿') }}
                 </x-nav-link>
             </button>

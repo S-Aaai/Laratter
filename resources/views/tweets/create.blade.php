@@ -17,8 +17,21 @@
                         <form method="POST" action="{{ route('tweets.store') }}">
                             @csrf
                             <div class="mb-4">
-                            {{-- <label for="tweet" placeholder="" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">投稿</label> --}}
-                            <input type="text" placeholder="例えばこんな制度を利用したよ" name="tweet" id="tweet" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+
+                                @php
+                                $placeholders = [
+                                    'こんな制度を利用したよ',
+                                    '赤ちゃんの笑顔が最高！な瞬間は',
+                                    '小さな成功体験を共有するよ',
+                                    'じぶんへのご褒美♡',
+                                    'ベビー今「〇〇」って言った？！👀',
+                                    '絶対入れておいた方がよい育児アプリは？',
+                                    // 他の選択肢を追加
+                                ];
+                                $randomPlaceholder = $placeholders[array_rand($placeholders)];
+                                @endphp
+
+                                <input type="text" placeholder="{{$randomPlaceholder}}" name="tweet" id="tweet" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             @error('tweet')
                             <span class="text-red-500 text-xs italic">{{ $message }}</span>
                             @enderror

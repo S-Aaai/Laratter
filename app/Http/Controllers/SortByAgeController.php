@@ -21,7 +21,6 @@ class SortByAgeController extends Controller
             ->get();
 
         $user = Auth::user();
-
         return view('sortByAge.index', compact('tweets', 'user'));
     }
 

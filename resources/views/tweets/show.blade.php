@@ -17,8 +17,17 @@
                             <a href="{{ route('tweets.index') }}" class="text-blue-500 hover:text-blue-700 mr-2">一覧に戻る</a>
                         </div></br>
 
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $tweet->user->name }}</p>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">👶生後: {{ calculateAge( $tweet->user->child_birthday, $tweet->created_at) }}カ月</p><hr></br>
+                        {{-- <p class="text-gray-600 dark:text-gray-400 text-sm">投稿者: {{ $tweet->user->name }}</p> --}}
+
+                        <div class="flex mb-4">
+                            <div class="rounded-2xl bg-white p-2 inline-block mr-2">
+                                <img src="{{ asset('storage/' . $user->profile_picture) }}" alt="アイコン" class="rounded-full h-8">
+                            </div>
+                            <p class="place-self-center text-gray-600 dark:text-gray-400 text-sm">{{ $tweet->user->name }}</p>
+                        </div>
+
+
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 ml-4">👶生後: {{ calculateAge( $tweet->user->child_birthday, $tweet->created_at) }}カ月</p><hr></br>
                         <p class="text-gray-800 dark:text-gray-300 text-lg">{{ $tweet->tweet }}</p></br>
 
                         <div class="text-gray-600 dark:text-gray-400 text-sm">

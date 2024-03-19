@@ -15,8 +15,17 @@
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                     @foreach ($tweets as $tweet)
                     <div class="mb-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">{{ $tweet->user->name }}</p>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">👶{{ calculateAge( $tweet->user->child_birthday, $tweet->created_at) }}ヶ月</p><hr></br>
+                        {{-- <p class="text-gray-600 dark:text-gray-400 text-sm">{{ $tweet->user->name }}</p> --}}
+
+                        <div class="flex mb-4">
+                            <div class="rounded-2xl bg-white p-2 inline-block mr-2">
+                                <img src="{{ asset('storage/' . $tweet->user->profile_picture) }}" alt="アイコン" class="rounded-full h-8">
+                            </div>
+                            <p class="place-self-center text-gray-600 dark:text-gray-400 text-sm">{{ $tweet->user->name }}</p>
+                        </div>
+
+
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 ml-4">👶{{ calculateAge( $tweet->user->child_birthday, $tweet->created_at) }}ヶ月</p><hr></br>
                         <p class="text-gray-800 dark:text-gray-300">{{ $tweet->tweet }}</p></br>
 
                         <div class="flex justify-between">

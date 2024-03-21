@@ -62,6 +62,7 @@
                             <span class="mr-3 font-bold">月齢</span>
                         </div>
                         <select name="selected_age" class="rounded-full border-none mr-2" >
+                            <option value="0"> 0 ヶ月</option>
                             <option value="1"> 1 ヶ月</option>
                             <option value="2"> 2 ヶ月</option>
                             <option value="3"> 3 ヶ月</option>

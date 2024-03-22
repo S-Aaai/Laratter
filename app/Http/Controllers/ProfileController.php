@@ -37,7 +37,7 @@ class ProfileController extends Controller
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $filename = date('Ymd_His').'_'.$file->getClientOriginalName();
-            $path = $file->storeAs('storage', $filename);
+            $path = $file->storeAs('', $filename);
 
             $user = $request->user();
             $user->profile_picture = $path;

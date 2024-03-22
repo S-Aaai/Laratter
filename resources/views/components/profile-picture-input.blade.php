@@ -3,7 +3,7 @@
         <img
             id="preview"
             alt=""
-            src="{{  Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : asset('uploads/penguin-48.png') }}"
+            src="{{  Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : asset('storage/penguin-48.png') }}"
             class="w-16 h-16 rounded-full object-cover border-none bg-gray-200" />
     </div>
     <div class="flex items-center">

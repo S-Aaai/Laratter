@@ -19,6 +19,7 @@
             <button class="flex font-semibold mr-8 mb-4 hover:bg-gray-200 rounded-full px-3 py-2">
                 <x-nav-link :href="route('tweetLikes.index')" :active="request()->routeIs('tweetLikes.index')" class="flex" >
                     {{-- <img src="/img/like_.png" class="h-6 px-2" /> --}}
+                    <img src="img/like_.png" class="h-6 px-2" />
                     {{ __('いいねした投稿') }}
                 </x-nav-link>
             </button>

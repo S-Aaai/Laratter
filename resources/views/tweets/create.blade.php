@@ -9,12 +9,17 @@
 
         @include('layouts.nav')
 
-        <div class="py-12 col-span-1">
+        <div class="py-12 col-span-2">
             <div class="py-12">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <form method="POST" action="{{ route('tweets.store') }}">
+
+                            <div>
+                                <a href="{{ route('tweets.index') }}" class="text-blue-500 hover:text-blue-700 mr-2">一覧に戻る</a>
+                            </div></br>
+
+                            <form method="POST" action="{{ route('tweets.store') }}">
                             @csrf
                             <div class="mb-4">
 
@@ -41,12 +46,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="col-span-1">
-            <div class="hidden sm:block mt-16 font-semibold">
-                今日のホットワード
             </div>
         </div>
     </div>

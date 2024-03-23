@@ -6,7 +6,6 @@
     </x-slot>
 
     <div class="grid sm:grid-cols-1 md:grid-cols-3">
-
         @include('layouts.nav')
 
         <div class="py-12 col-span-1">

@@ -20,7 +20,7 @@
 
                             <div class="flex mb-4">
                                 <div class="rounded-2xl bg-white p-2 inline-block mr-2">
-                                    <img src="{{ asset('storage/' . $user->profile_picture) }}" alt="アイコン" class="rounded-full h-8">
+                                    <img src="{{ asset('storage/' . $tweet->user->profile_picture) }}" alt="アイコン" class="rounded-full h-8">
                                 </div>
                                 <p class="place-self-center text-gray-600 dark:text-gray-400 text-sm">{{ $tweet->user->name }}</p>
                             </div>

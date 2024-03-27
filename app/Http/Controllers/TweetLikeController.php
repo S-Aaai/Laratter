@@ -32,7 +32,7 @@ class TweetLikeController extends Controller
             ->pluck('tweet_id');
 
         // いいねしたツイートのみを取得
-        $tweets = Tweet::whereIn('id', $likedTweetIds)->get();
+        $tweets = Tweet::whereIn('id', $likedTweetIds)->orderBy('created_at', 'desc')->get();
 
         $user = Auth::user();
 
